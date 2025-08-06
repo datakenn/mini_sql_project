@@ -34,15 +34,13 @@ CREATE TABLE user_submissions (
 
 
 Queries Included
+
 1. Retrieve all submissions
-sql
-Copy
-Edit
+
 SELECT * FROM user_submissions;
-2. User statistics: total submissions and points earned
-sql
-Copy
-Edit
+
+2. Total submissions and points earned
+
 SELECT
     username,
     COUNT(id) AS total_submissions,
@@ -50,10 +48,9 @@ SELECT
 FROM user_submissions
 GROUP BY username
 ORDER BY total_submissions DESC;
+
 3. Daily average points per user
-sql
-Copy
-Edit
+
 SELECT
     TO_CHAR(submitted_at, 'DD-MM') AS day,
     username,
@@ -61,10 +58,9 @@ SELECT
 FROM user_submissions
 GROUP BY TO_CHAR(submitted_at, 'DD-MM'), username
 ORDER BY username ASC;
-4. Top 3 users with most positive submissions each day
-sql
-Copy
-Edit
+
+4. Top 3 users with the most positive submissions each day
+
 WITH daily_submissions AS (
     SELECT
         TO_CHAR(submitted_at, 'DD-MM') AS daily,
@@ -84,10 +80,9 @@ user_rank AS (
 SELECT daily, username, correct_submissions
 FROM user_rank
 WHERE rank <= 3;
+
 5. Top 5 users with the highest number of incorrect submissions
-sql
-Copy
-Edit
+
 SELECT
     username,
     SUM(CASE WHEN points < 0 THEN 1 ELSE 0 END) AS incorrect_submissions,
@@ -99,10 +94,9 @@ FROM user_submissions
 GROUP BY username
 ORDER BY incorrect_submissions DESC
 LIMIT 5;
+
 6. Top 10 performers for each week
-sql
-Copy
-Edit
+
 SELECT *  
 FROM (
     SELECT 
