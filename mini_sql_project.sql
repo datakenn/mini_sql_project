@@ -1,4 +1,4 @@
---Mini SQL Project by Kennedy Holifield
+--Gamer SQL Project  by Kennedy Holifield
 
 CREATE TABLE user_submissions(
 	id SERIAL PRIMARY KEY,
