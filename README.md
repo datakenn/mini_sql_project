@@ -1,4 +1,4 @@
-# Mini SQL Project by Kennedy Holifield
+# Gamer SQL Project by Kennedy Holifield
 
 This project contains SQL scripts to analyze user submissions data, focusing on tracking user activity, points earned, and ranking users based on their performance over time.
 
